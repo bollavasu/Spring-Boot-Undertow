@@ -1,0 +1,23 @@
+
+http://localhost:8080/
+
+1)we need only 1 change in pom.xml to enable undertow web server
+
+    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+		<exclusions>
+			<exclusion>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-tomcat</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-undertow</artifactId>
+	</dependency>
+
+a) we don't need to install undertow server to use undertow
+b) spring boot default web server is tomcat
+c) spring-boot-starter-web has tomcat dependency, that's why we need to exclude it and add undertow dependency in pom.xml
